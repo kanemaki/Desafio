@@ -12,7 +12,11 @@ module.exports = {
         }
     },
     async excluirPerfil(_, { filtro }) {
-        // implementar
+        try{
+  
+        } catch(e) {
+            throw new Error(e.sqlMessage)
+        }
     },
     async alterarPerfil(_, { filtro, dados }) {
         // implementar
