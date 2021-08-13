@@ -17,7 +17,11 @@ module.exports = {
             const perfil = await obterPerfil(_, { filtro })
 
             if(perfil) {
-                
+                const { id } = perfil
+                await db('usuarios_perfis')
+                    .where({ perfil_id: id }).delete()
+                await db('perfis')
+                    .where({ id }).delete()    
             }
 
         } catch(e) {
