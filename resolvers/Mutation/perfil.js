@@ -1,4 +1,5 @@
 const db = require('../../config/db')
+const { perfil: obterPerfil } = require('../Query/perfil')
 
 module.exports = {
     async novoPerfil(_, { dados }) {
@@ -13,7 +14,7 @@ module.exports = {
     },
     async excluirPerfil(_, { filtro }) {
         try{
-  
+            
         } catch(e) {
             throw new Error(e.sqlMessage)
         }
