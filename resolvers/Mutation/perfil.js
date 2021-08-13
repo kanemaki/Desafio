@@ -19,6 +19,10 @@ module.exports = {
         }
     },
     async alterarPerfil(_, { filtro, dados }) {
-        // implementar
+        try{
+  
+        } catch(e) {
+            throw new Error(e.sqlMessage)
+        }
     }
 }
