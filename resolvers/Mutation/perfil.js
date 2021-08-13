@@ -38,7 +38,7 @@ module.exports = {
                 const { id } = perfil
                 await db('perfis')
                     .where({ id })
-                    .update(...dados) 
+                    .update(dados) 
             }
 
             return {...perfil, ...dados}
