@@ -32,7 +32,17 @@ module.exports = {
     },
     async alterarPerfil(_, { filtro, dados }) {
         try{
-  
+            const perfil = await obterPerfil(_, { filtro })
+
+            if(perfil) {
+                const { id } = perfil
+                await db('perfis')
+                    .where({ id })
+                    .update(...dados) 
+            }
+
+            return {...perfil, ...dados}
+
         } catch(e) {
             throw new Error(e.sqlMessage)
         }
