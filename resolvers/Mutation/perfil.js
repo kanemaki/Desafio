@@ -14,7 +14,12 @@ module.exports = {
     },
     async excluirPerfil(_, { filtro }) {
         try{
-            
+            const perfil = await obterPerfil(_, { filtro })
+
+            if(perfil) {
+                
+            }
+
         } catch(e) {
             throw new Error(e.sqlMessage)
         }
