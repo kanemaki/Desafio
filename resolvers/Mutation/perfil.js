@@ -24,6 +24,8 @@ module.exports = {
                     .where({ id }).delete()    
             }
 
+            return perfil
+
         } catch(e) {
             throw new Error(e.sqlMessage)
         }
