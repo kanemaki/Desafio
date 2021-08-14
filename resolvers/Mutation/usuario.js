@@ -17,6 +17,10 @@ module.exports = {
         }
     },
     async alterarUsuario(_, { filtro, dados }) {
+        try{
 
+        } catch(e) {
+            throw new Error(e.sqlMessage)
+        }
     }
 }
