@@ -14,7 +14,7 @@ module.exports = {
                 }
             }
 
-            //delete dados.perfis
+            delete dados.perfis
 
             const [ id ] = await db('usuarios')
                 .insert(dados)
