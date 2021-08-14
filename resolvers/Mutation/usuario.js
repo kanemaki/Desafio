@@ -28,7 +28,7 @@ module.exports = {
                 .where({ id }).first()
 
         } catch(e) {
-            throw new Error(e)
+            throw new Error(e.sqlMessage)
         }
     },
     async excluirUsuario(_, { filtro }) {
