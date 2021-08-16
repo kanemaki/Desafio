@@ -75,7 +75,7 @@ module.exports = {
             return !usuario ? null : { ...usuario, ...dados}
 
         } catch(e) {
-            throw new Error(e.sqlMessage)
+            throw new Error(e)
         }
     }
 }
