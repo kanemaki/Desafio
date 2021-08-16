@@ -59,7 +59,7 @@ module.exports = {
                         const perfil = await obterPerfil(_, {
                             filtro: { ...perfilFiltro }
                         })
-                        await db('ususarios_perfis')
+                        await db('usuarios_perfis')
                             .insert({
                                 perfil_id: perfil.id,
                                 usuario_id: id
