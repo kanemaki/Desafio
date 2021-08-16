@@ -59,7 +59,7 @@ module.exports = {
                         const perfil = await obterPerfil(_, {
                             filtro: { ...perfilFiltro }
                         })
-                        await db('usuarios_perfis')
+                       perfil && await db('usuarios_perfis')
                             .insert({
                                 perfil_id: perfil.id,
                                 usuario_id: id
@@ -75,7 +75,7 @@ module.exports = {
             return !usuario ? null : { ...usuario, ...dados}
 
         } catch(e) {
-            throw new Error(e)
+            throw new Error(e.sqlMessage)
         }
     }
 }
