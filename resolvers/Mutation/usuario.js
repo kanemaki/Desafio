@@ -7,7 +7,7 @@ module.exports = {
         try{
             const idsPerfis = []
             if(dados.perfis) {
-                for(filtro of dados.perfis) {
+                for(let filtro of dados.perfis) {
                     const perfil = await obterPerfil(_, {
                         filtro
                     })
@@ -55,13 +55,25 @@ module.exports = {
                 if(dados.perfis) {
                     await db('usuarios_perfis')
                         .where({ usuario_id: id }).delete()
-                    for(perfilFiltro of dados.perfis) {
+                    for(let perfilFiltro of dados.perfis) {
                         const perfil = await obterPerfil(_, {
                             filtro: { ...perfilFiltro }
                         })
+                        await db('ususarios_perfis')
+                            .insert({
+                                perfil_id: perfil.id,
+                                usuario_id: id
+                            })
                     }
                 }
+
+                delete dados.perfis
+                await db('usuarios')
+                    .where({ id })
+                    .update(dados)                   
             }
+            return !usuario ? null : { ...usuario, ...dados}
+
         } catch(e) {
             throw new Error(e.sqlMessage)
         }
