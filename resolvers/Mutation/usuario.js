@@ -49,6 +49,7 @@ module.exports = {
     },
     async alterarUsuario(_, { filtro, dados }) {
         try{
+            const usuario = await obterUsuario(_, { filtro })
 
         } catch(e) {
             throw new Error(e.sqlMessage)
